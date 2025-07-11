@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Chair Grabbing Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1>🪑 Virtual Chair Grabbing Game</h1>
+            <p class="subtitle">Be quick! Grab a chair when the music stops!</p>
+        </header>
+
+        <div class="game-stats">
+            <div class="stat-item">
+                <span class="stat-label">Players:</span>
+                <span id="player-count">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Chairs:</span>
+                <span id="chair-count">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Round:</span>
+                <span id="round-count">1</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Time:</span>
+                <span id="timer">0</span>s
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <input type="number" id="player-input" min="2" max="12" value="6" placeholder="Number of players">
+            <button id="start-game" class="btn btn-primary">Start Game</button>
+            <button id="stop-music" class="btn btn-secondary" style="display: none;">Stop Music</button>
+            <button id="reset-game" class="btn btn-reset">Reset Game</button>
+        </div>
+
+        <div class="game-status">
+            <div id="status-message" class="status-message">
+                Welcome! Set number of players and click Start Game
+            </div>
+            <div id="music-indicator" class="music-indicator">
+                <span class="music-note">🎵</span>
+                <span class="music-text">Music Playing</span>
+            </div>
+        </div>
+
+        <div class="game-board" id="game-board">
+            <!-- Chairs and players will be dynamically generated here -->
+        </div>
+
+        <div class="game-info">
+            <h3>How to Play:</h3>
+            <ul>
+                <li>Set the number of players (2-12)</li>
+                <li>Click "Start Game" to begin</li>
+                <li>Players will circle around the chairs</li>
+                <li>When the music stops, click on a chair to grab it!</li>
+                <li>The player without a chair is eliminated</li>
+                <li>Last player standing wins!</li>
+            </ul>
+        </div>
+
+        <div class="leaderboard" id="leaderboard" style="display: none;">
+            <h3>🏆 Game Results</h3>
+            <div id="results-list"></div>
+        </div>
+    </div>
+
+    <!-- Audio elements -->
+    <audio id="background-music" loop>
+        <!-- We'll use Web Audio API for music simulation -->
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
